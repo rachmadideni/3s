@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon, Row, Col, Button, Alert, Avatar,Form, Input, Steps } from 'antd';
+import { Layout, Menu, Icon, Row, Col, Alert, Form, Input, Steps } from 'antd';
 import '../node_modules/antd/dist/antd.css';
 import './Ant-custom.css';
 
-const { SubMenu } = Menu;
+//const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const Step = Steps.Step;
 
@@ -21,7 +21,8 @@ class App extends Component {
    }
 
    handleClick = (e) => {
-       console.log('click ', e);
+    
+       // console.log('click ', e);
        this.setState({
            current: e.key,
        });
