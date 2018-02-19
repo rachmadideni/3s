@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-// import Button from 'antd/lib/button';
-
 import { Layout, Menu, Icon, Row, Col, Button, Alert, Avatar,Form, Input, Steps } from 'antd';
 import '../node_modules/antd/dist/antd.css';
-
-// import './App.css';
 import './Ant-custom.css';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const Step = Steps.Step;
-
-
 
 class App extends Component {
   
