@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout, Row, Col, Form, Icon, Input, Button, Checkbox } from 'antd';
-import './Ant-custom.css';
 
 const FormItem = Form.Item;
 const { Content } = Layout;
@@ -34,10 +33,8 @@ class LoginForm extends Component{
 					<Form onSubmit = { this.handleSubmit } className = "login-form">
 
 				        <FormItem>
-				          {
-				          	getFieldDecorator('userName', { rules: [{ required: true, message: 'Please input your username!' }],})
-				          	( <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" /> )
-				          }
+				          {getFieldDecorator('userName', { rules: [{ required: true, message: 'Please input your username!' }],})(
+				          	<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" /> )}
 				        </FormItem>
 
 				        <FormItem>
