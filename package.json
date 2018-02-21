@@ -30,6 +30,7 @@
     "react-simple-modal": "^1.1.5",
     "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "selectly": "^0.5.0",
     "simple-react-router": "0.0.14"
   },

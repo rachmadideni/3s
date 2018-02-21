@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setMessage } from './actions/message';
 import { Layout, Menu, Icon, Row, Col, Alert, Form, Button, Input, Steps } from 'antd';
 
 //const { SubMenu } = Menu;
@@ -26,25 +28,29 @@ class App extends Component {
        });
    }
 
-  render() {
-    return (
+   ChangeInput = (e) => {
+      this.props.dispatch(setMessage(e.target.value));
+   }
 
+  render() {
+    
+    const { message } = this.props.messageReducer;    
+
+    return (
       <Layout>
-           <Sider width = { 200 } trigger = { null } collapsible collapsed={ true } style={{ paddingTop:10 }}>
-               {/*<div className = "logo" />*/}
+           <Sider width = { 200 } trigger = { null } collapsible collapsed={ true } style={{ paddingTop:10 }}>               
                <Menu theme = "dark" mode = "inline" defaultSelectedKeys = {['1']}>                     
                      <Menu.Item key ="3" ><Icon size="large" type="home" /><span>Home</span></Menu.Item>
-                     <Menu.Item key ="4" ><Icon size="large" type="plus" /><span>Mulai Transaksi</span></Menu.Item>
-                     <Menu.Item key ="5" ><Icon size="large" type="book" /><span>nav 3</span></Menu.Item>
+                     <Menu.Item key ="4" ><Icon size="large" type="plus" /><span>Sales</span></Menu.Item>
+                     <Menu.Item key ="5" ><Icon size="large" type="book" /><span>Services</span></Menu.Item>
+                     <Menu.Item key ="6" ><Icon size="large" type="book" /><span>SpareParts</span></Menu.Item>
                </Menu>
            </Sider>
            <Sider width={250} collapsible collapsed = { this.state.collapsed } style={{ paddingRight:15 }}>
               <div className = "logo" />
-
               <Menu theme = "dark" mode = "inline" defaultSelectedKeys = {['1']}>                                          
-                     <Menu.Item key ="3" ><Icon type="ellipsis" /><span>Overview</span></Menu.Item>
-                     <Menu.Item key ="4" ><Icon type="book" /><span>Order Parts</span></Menu.Item>
-                     <Menu.Item key ="5" ><Icon type="upload" /><span>History</span></Menu.Item>
+                     <Menu.Item key ="3" ><Icon type="user" /><span>Account</span></Menu.Item>                     
+                     <Menu.Item key ="5" ><Icon type="upload" /><span>Logout</span></Menu.Item>
                </Menu>
            </Sider>
 
@@ -75,13 +81,10 @@ class App extends Component {
                           <Row>
                           <Col span={2}></Col>
                           <Col span={18}>
-                               <Alert type = "success" message = "hi im alert message" banner = { false } showIcon = { true } closable = { true } />                           
-                               <Form layout="vertical">
-                                  <Form.Item label="title">
-                                     <Input name="title" />
-                                  </Form.Item>
+                               {/*<Alert type = "success" message = "hi im alert message" banner = { false } showIcon = { true } closable = { true } />*/}                           
+                               <Form layout="vertical">                                  
                                   <Form.Item>
-                                     <Input name="title" placeholder="dasdsadsada"/>
+                                     <Input name="title" placeholder="test input" value = { message } onChange={this.ChangeInput.bind(this)}/>
                                   </Form.Item>
                                </Form>
                                {/*}
@@ -108,4 +111,5 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App;
+export default connect(state => state)(App);
