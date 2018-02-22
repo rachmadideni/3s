@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component  } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setMessage } from './actions/message';
+import { bindActionCreators } from 'redux';
 import { Layout, Menu, Icon, Row, Col, Alert, Form, Button, Input, Steps } from 'antd';
 
 //const { SubMenu } = Menu;
@@ -8,11 +10,15 @@ const { Header, Content, Sider } = Layout;
 const Step = Steps.Step;
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
   
-   state = {
-       collapsed: false,
-       current: 'mail',
-   };
+    this.state = {
+      collapsed: false,
+       current: 'mail'
+    };
+  }   
 
    toggle = () => {
        this.setState({
@@ -30,11 +36,13 @@ class App extends Component {
 
    ChangeInput = (e) => {
       this.props.dispatch(setMessage(e.target.value));
-   }
+      // const val = this.props;
+      // console.log(val);
+   }   
 
   render() {
     
-    const { message } = this.props.messageReducer;    
+    // const { message } = this.props.messageReducer;    
 
     return (
       <Layout>
@@ -84,7 +92,7 @@ class App extends Component {
                                {/*<Alert type = "success" message = "hi im alert message" banner = { false } showIcon = { true } closable = { true } />*/}                           
                                <Form layout="vertical">                                  
                                   <Form.Item>
-                                     <Input name="title" placeholder="test input" value = { message } onChange={this.ChangeInput.bind(this)}/>
+                                     <Input name="title" placeholder="test input" value = "" onChange={this.ChangeInput.bind(this)}/>
                                   </Form.Item>
                                </Form>
                                {/*}
@@ -111,5 +119,9 @@ class App extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(setMessage, dispatch) }
+}
+
 // export default App;
-export default connect(state => state)(App);
+export default connect(mapDispatchToProps)(App);
