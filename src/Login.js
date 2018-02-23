@@ -47,18 +47,11 @@ class LoginForm extends Component{
 				        </FormItem>
 
 				        <FormItem>
-				          {getFieldDecorator('remember', {
-				            valuePropName: 'checked',
-				            initialValue: true,
-				          })(
-				            <Checkbox>Remember me</Checkbox>
-				          )}
+				          {getFieldDecorator('remember', { valuePropName: 'checked',initialValue: true,})(<Checkbox>Remember me</Checkbox>)}
 				          <a className="login-form-forgot" href="">Forgot password</a>
-				          <Link to="/">
-				          <Button type="primary" htmlType="submit" className="login-form-button">
-				            Log in
-				          </Button>
-				          </Link>
+				          
+				          <Link to="/app"><Button type="primary" htmlType="submit" className="login-form-button">Log in</Button></Link>
+
 				          &nbsp;&nbsp;Or <a href="">register now!</a>
 				        </FormItem>
 

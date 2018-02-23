@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setMessage } from './actions/message';
 import { bindActionCreators } from 'redux';
 import { Layout, Menu, Icon, Row, Col, Alert, Form, Button, Input, Steps } from 'antd';
+import { Link } from 'react-router-dom';
 
 //const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -49,7 +50,7 @@ class App extends Component {
            <Sider width = { 200 } trigger = { null } collapsible collapsed={ true } style={{ paddingTop:10 }}>               
                <Menu theme = "dark" mode = "inline" defaultSelectedKeys = {['1']}>                     
                      <Menu.Item key ="3" ><Icon size="large" type="home" /><span>Home</span></Menu.Item>
-                     <Menu.Item key ="4" ><Icon size="large" type="plus" /><span>Sales</span></Menu.Item>
+                     <Menu.Item key ="4" ><Icon size="large" type="plus" /><Link To="/mod_sales"><span>Sales</span></Link></Menu.Item>
                      <Menu.Item key ="5" ><Icon size="large" type="book" /><span>Services</span></Menu.Item>
                      <Menu.Item key ="6" ><Icon size="large" type="book" /><span>SpareParts</span></Menu.Item>
                </Menu>
@@ -87,29 +88,19 @@ class App extends Component {
                         </Header>
                         <Content style={{ background:'#fff' }}>
                           <Row>
-                          <Col span={2}></Col>
-                          <Col span={18}>
-                               {/*<Alert type = "success" message = "hi im alert message" banner = { false } showIcon = { true } closable = { true } />*/}                           
-                               <Form layout="vertical">                                  
-                                  <Form.Item>
-                                     <Input name="title" placeholder="test input" value = "" onChange={this.ChangeInput.bind(this)}/>
-                                  </Form.Item>
-                               </Form>
-                               {/*}
-                               <Steps size="large" current={1}>
-                                <Step title="Finished" description="Complete user Profile" icon={<Icon type="check" />} />
-                                <Step title="In Progress" description="Billing Information" icon={<Icon type="user" />} />
-                                <Step title="Waiting" description="This is a description." icon={<Icon type="user" />} />
-                              </Steps>*/}
-                          </Col>
+                              <Col span={2}></Col>
+                              <Col span={18}>
+                                   {/*<Alert type = "success" message = "hi im alert message" banner = { false } showIcon = { true } closable = { true } />*/}                           
+                                   <Form layout="vertical">                                  
+                                      <Form.Item>
+                                         <Input name="title" placeholder="test input" value = "" onChange={this.ChangeInput.bind(this)}/>
+                                      </Form.Item>
+                                   </Form>                               
+                              </Col>
                           </Row>                      
                         </Content>
                      </Layout>
-               </Content>
-
-               <Content>
-
-               </Content>
+               </Content>              
 
            </Layout>
 

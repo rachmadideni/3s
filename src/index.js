@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import '../node_modules/antd/dist/antd.css';
 import './Ant-custom.css';
 
-import App from './App';
+// import App from './App';
 import { Provider } from 'react-redux';
 import store from './store';
 import AppRoutes from './routes';
