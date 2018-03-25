@@ -3,10 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import App from './App';
 import Login from './Login';
 
-
-
-// export default () => {
-
 export default class Routes extends React.Component{
 	
 	constructor() {
@@ -33,10 +29,8 @@ export default class Routes extends React.Component{
 		return (
 			<BrowserRouter>
 				<div>
-					<Route exact path='/' component = { Login } />
-				{/*onEnter={(nextState,replace,callback)=>this.requireAuth(nextState,replace,callback)}*/}
-					<Route path='/app' component = { App }/>
-					
+					<Route exact path='/' component = { Login }/>					
+					<Route path='/app' component = { App } />
 				</div>
 			</BrowserRouter>
 		);

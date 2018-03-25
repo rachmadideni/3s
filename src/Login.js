@@ -20,7 +20,7 @@ class LoginForm extends Component{
 		const { getFieldDecorator } = this.props.form;
 		return (
 			<Layout>
-			<Content style={{ paddingTop: '150px',background: '#fff' }} >
+			<Content style={{ paddingTop: '150px',background: '#fff' }}>
 				<Row gutter={8}>
 					<Col span={9}></Col>
 					<Col span={5}>
